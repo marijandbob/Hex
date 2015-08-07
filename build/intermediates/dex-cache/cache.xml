@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-1f509dcdb3a561c4caef3be4ea1a81c11a105f1d.jar" />
+    </item>
+    <item
+        jar="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\pre-dexed\debug\classes-ffc7bf4686d915d193df8ca1a7e184ee6d286b54.jar" />
+    </item>
+    <item
         jar="C:\Users\bob\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-bfb2856bce6403b424560bf3093206702f263e96.jar" />
+        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-bfb2856bce6403b424560bf3093206702f263e96.jar" />
     </item>
     <item
-        jar="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-5e0b7197947ab5e86dbe8199fef518550203a9b2.jar" />
-    </item>
-    <item
-        jar="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\pre-dexed\debug\classes-cf326f4e803c6f0e4d5e6a9e539ecd63becd1e20.jar" />
-    </item>
-    <item
-        jar="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\jars\classes.jar"
+        jar="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\Hex\app\build\intermediates\pre-dexed\debug\classes-0ec3b8c932e9ba26146c6f3cffcc0e5c1c3148cd.jar" />
+        <dex dex="C:\Users\bob\Desktop\GCM\google-services\android\HexCalc\app\build\intermediates\pre-dexed\debug\classes-2b60da5bf48d26cadf638ce41e757a9e5b3f7112.jar" />
     </item>
 
 </items>

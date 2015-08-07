@@ -14,7 +14,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class HexCalc extends ActionBarActivity {
-    final String TAG = "HexCalc"; 
+    final String TAG = "HexCalc";
 
 
     @Override
