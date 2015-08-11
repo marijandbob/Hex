@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -23,28 +24,34 @@ public class HexCalc extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hex);
-
+        LinearLayout topLevel = (LinearLayout) findViewById(R.id.top_level);
 
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         //int height = displaymetrics.heightPixels;
         int width = displaymetrics.widthPixels;
-        int buttonSize = width / 10;
-        int textSize = buttonSize / 5;
 
-        type = Typeface.createFromAsset(getAssets(), "fonts/Symbola.ttf");
+        // FIXME -- is this the correct size?
+        int margin = 5;
+        int buttonSize = (width - (margin * 4)) / 10;
+        int textSize = (int) ((double) buttonSize * .5);
 
-        ((TextView) findViewById(R.id.hexLabel)).setTypeface(type);
-        ((TextView) findViewById(R.id.decimalLabel)).setTypeface(type);
-        ((TextView) findViewById(R.id.hex)).setTypeface(type);
-        ((TextView) findViewById(R.id.decimal)).setTypeface(type);
+        type = Typeface.createFromAsset(getAssets(), "fonts/fontawesome-webfont.ttf");
+
+        ((TextView) findViewById(R.id.hexLabel)).setTypeface(type, Typeface.BOLD);
+        ((TextView) findViewById(R.id.hexLabel)).setTextSize(textSize);
+
+        ((TextView) findViewById(R.id.decimalLabel)).setTypeface(type, Typeface.BOLD);
+        ((TextView) findViewById(R.id.decimalLabel)).setTextSize(textSize);
+
+        ((TextView) findViewById(R.id.hex)).setTypeface(type, Typeface.BOLD);
+        ((TextView) findViewById(R.id.hex)).setTextSize(textSize);
+
+        ((TextView) findViewById(R.id.decimal)).setTypeface(type, Typeface.BOLD);
+        ((TextView) findViewById(R.id.decimal)).setTextSize(textSize);
 
         ((TextView) findViewById(R.id.errorMessage)).setTextSize(textSize);
 
-        ((TextView) findViewById(R.id.hexLabel)).setTextSize(textSize);
-        ((TextView) findViewById(R.id.decimalLabel)).setTextSize(textSize);
-        ((TextView) findViewById(R.id.hex)).setTextSize(textSize);
-        ((TextView) findViewById(R.id.decimal)).setTextSize(textSize);
 
         final String[] labels = {
                 "0",
@@ -85,7 +92,7 @@ public class HexCalc extends ActionBarActivity {
         };
 
         for (int i = 0; i < buttons.length; i++) {
-            ((Button) findViewById(buttons[i])).setTypeface(type);
+            ((Button) findViewById(buttons[i])).setTypeface(type, Typeface.BOLD);
             ((Button) findViewById(buttons[i])).setTextSize(textSize);
             ((Button) findViewById(buttons[i])).setWidth(buttonSize);
             ((Button) findViewById(buttons[i])).setHeight(buttonSize);
@@ -103,8 +110,9 @@ public class HexCalc extends ActionBarActivity {
         }
 
         ((Button) findViewById(R.id.back)).setTextSize(textSize);
-        ((Button) findViewById(R.id.back)).setTypeface(type);
-        ((Button) findViewById(R.id.back)).setText("\u2b05");
+        ((Button) findViewById(R.id.back)).setTypeface(type, Typeface.BOLD);
+//        ((Button) findViewById(R.id.back)).setText("\u2b05");
+        ((Button) findViewById(R.id.back)).setText("\uf0a5");
         ((Button) findViewById(R.id.back)).setWidth(buttonSize);
         ((Button) findViewById(R.id.back)).setHeight(buttonSize);
         findViewById(R.id.back).setOnClickListener(new OnClickListener() {
@@ -115,13 +123,14 @@ public class HexCalc extends ActionBarActivity {
         });
 
         ((Button) findViewById(R.id.clear)).setTextSize(textSize);
-        ((Button) findViewById(R.id.clear)).setTypeface(type);
-        ((Button) findViewById(R.id.clear)).setText("X");
+        ((Button) findViewById(R.id.clear)).setTypeface(type, Typeface.BOLD);
+        ((Button) findViewById(R.id.clear)).setText("\uf00d");
         ((Button) findViewById(R.id.clear)).setWidth(buttonSize);
         ((Button) findViewById(R.id.clear)).setHeight(buttonSize);
         findViewById(R.id.clear).setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 clear();
+
             }
         });
     }
@@ -129,6 +138,7 @@ public class HexCalc extends ActionBarActivity {
     private void clear() {
         ((TextView) findViewById(R.id.hex)).setText("");
         ((TextView) findViewById(R.id.decimal)).setText("");
+        ((TextView) findViewById(R.id.errorMessage)).setText("");
     }
 
     private void back() {
@@ -144,16 +154,21 @@ public class HexCalc extends ActionBarActivity {
 
         ((TextView) findViewById(R.id.errorMessage)).setText(" ");
 
-        TextView et = (TextView) findViewById(R.id.hex);
-        TextView tv = (TextView) findViewById(R.id.decimal);
+        TextView hex = (TextView) findViewById(R.id.hex);
+        TextView dec = (TextView) findViewById(R.id.decimal);
 
+        String str;
         try {
-            tv.setText(
+            str =
                     NumberFormat.getNumberInstance(Locale.getDefault()).
-                            format(Long.parseLong(et.getText().toString(), 16)));
+                            format(Long.parseLong(hex.getText().toString(), 16));
+            dec.setText(str);
         } catch (Exception e) {
-            ((TextView) findViewById(R.id.errorMessage)).setText("" + e);
-            tv.setText("");
+            //((TextView) findViewById(R.id.errorMessage)).setText("" + e);
+            dec.setText("");
+            if (!hex.getText().toString().trim().equals("")) {
+                ((TextView) findViewById(R.id.errorMessage)).setText("Overflow");
+            }
         }
     }
 
